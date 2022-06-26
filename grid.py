@@ -7,6 +7,9 @@ class Grid():
         for row in range(rows):
             self.data[row] = Array(columns, fill_value)
 
+    def __len__(self):
+        return len(self.data)
+
     def get_height(self):
         return len(self.data)
 
