@@ -10,7 +10,9 @@ class SinglyLinkedList:
     def append(self, data):
         """Append a node to the singly linked list
             the tail is te first node always, this way
-            tail(node)-node-node-head
+            tail(node)-node-node-head(node)
+
+            data(any type) = could be a string, number, etc.
         """
         node = Node(data)
 
@@ -39,15 +41,15 @@ class SinglyLinkedList:
         while current:
             val = current.data
             current = current.next
-            yield val # generators of val
+            yield val  # generators of val
 
     def delete(self, data):
         """This method delete the references to the node,
             this node exist but we cant reach it because
             there is no more references to it. Jump the node
         """
-        current = self.tail # current node
-        previous = self.tail # previous node
+        current = self.tail  # current node
+        previous = self.tail  # previous node
 
         while current:
             if current.data == data:
@@ -80,5 +82,3 @@ class SinglyLinkedList:
         self.tail = None
         self.head = None
         self.size = 0
-
-    
