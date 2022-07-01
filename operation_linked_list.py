@@ -1,9 +1,10 @@
-from os import remove
+from linked_list import SinglyLinkedList
 from node import Node
+from array_ import Array
 
-head = None
-for count in range(1,8): #Crear una serie de nodos de forma iterativa
-    head = Node(count, head)
+# head = None
+# for count in range(1,8): #Crear una serie de nodos de forma iterativa
+#     head = Node(count, head)
 
 #************************************************************************************
 # 1. Recorrer una linked list
@@ -40,7 +41,6 @@ for count in range(1,8): #Crear una serie de nodos de forma iterativa
 # else:
 #     print(f"The target item {target_item} is not in the linked list")
 
-
 #************************************************************************************
 # 4. Insert a new element at the head
 # new_node = Node('K')
@@ -52,6 +52,23 @@ for count in range(1,8): #Crear una serie de nodos de forma iterativa
 #     while probe.next != None:
 #         probe = probe.next
 #     probe.next = new_node
+
+
+
+print("Creating an Array with random numbers")
+random = Array(10)
+random.__fillRandom__()
+print(random)
+
+print("Creating a Linked list from an Array")
+linked_random = SinglyLinkedList()
+linked_random.array_to_linked(random)
+linked_random.show_linked_list()
+# linked_random.search(5)
+linked_random.replace_item(2,'dope')
+linked_random.show_linked_list()
+
+
 
 #************************************************************************************
 # 5. Remove item
@@ -86,31 +103,32 @@ for count in range(1,8): #Crear una serie de nodos de forma iterativa
 #         index -= 1
 #     probe.next = Node(new_item, probe.next)
 
-probe = head
-while probe != None:
-    print(probe.data)
-    probe = probe.next
+# probe = head
+# while probe != None:
+#     print(probe.data)
+#     probe = probe.next
 
-print("--"*20)
+# print("--"*20)
 #************************************************************************************
 # 8. Delete a node from a position
-index = 3
-if index <= 0 or head.next is None:
-    removed_item = head.data
-    head = head.next
-    print(removed_item)
-else:
-    probe = head
-    while index > 1 and probe.next.next != None:
-        probe = probe.next
-        index -= 1
-    removed_item = probe.next.data
-    probe.next = probe.next.next
-    print(removed_item)
+# index = 3
+# if index <= 0 or head.next is None:
+#     removed_item = head.data
+#     head = head.next
+#     print(removed_item)
+# else:
+#     probe = head
+#     while index > 1 and probe.next.next != None:
+#         probe = probe.next
+#         index -= 1
+#     removed_item = probe.next.data
+#     probe.next = probe.next.next
+#     print(removed_item)
 
-print("--"*20)
+# print("--"*20)
 
-probe = head
-while probe != None:
-    print(probe.data)
-    probe = probe.next
+# probe = head
+# while probe != None:
+#     print(probe.data)
+#     probe = probe.next
+

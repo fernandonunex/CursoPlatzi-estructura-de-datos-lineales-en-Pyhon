@@ -71,9 +71,15 @@ class SinglyLinkedList:
             data (int, str, bolean, etc): any data that could
             be store in a variable 
         """
-        for node in self.iter():
-            if data == node:
-                print(f"Data {data} found!")
+        probe = self.tail
+
+        while probe != None and data != probe.data:
+            probe = probe.next
+
+        if probe != None:
+            print(f"Data {data} has been found")
+        else:
+            print(f"Data {data} is not in the linked list")
 
     def clear(self):
         """Clear the SinglyLinkedList by cleaning the head and tail
@@ -82,3 +88,38 @@ class SinglyLinkedList:
         self.tail = None
         self.head = None
         self.size = 0
+
+    def array_to_linked(self, arr):
+        """Create a Singly Linked List from an array of one dimension"""
+        for item in arr.__iter__():
+            self.append(item)
+
+    def show_linked_list(self):
+        """
+        Print all the data of the linked list, the first element
+        element is the head and the last is the tail.
+        """
+        probe = self.tail
+        while probe != None:
+            print(probe.data)
+            probe = probe.next
+
+    def replace_item(self, target_item, new_item):
+        """Replace an item(data) from the linked list with the item(data)
+        passed in the argument of the method.
+        Just replace the first item that match the target_item.
+
+        Args:
+            target_item (int,str,float): data to replace the old data in linked list
+        """
+        probe = self.tail
+
+        while probe != None and target_item != probe.data:
+            probe = probe.next
+
+        if probe != None:
+            probe.data = new_item
+            print(
+                f"{new_item} replaced the old value in the node number {target_item}")
+        else:
+            print(f"The target item {target_item} is not in the linked list")
