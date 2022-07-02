@@ -123,3 +123,73 @@ class SinglyLinkedList:
                 f"{new_item} replaced the old value in the node number {target_item}")
         else:
             print(f"The target item {target_item} is not in the linked list")
+
+    def insert_at_head(self, new_item):
+        """Insert a new node at head of the linked list
+
+        Args:
+            new_item (any): this is the data of the new node that will be
+            at the head
+        """
+        new_node = Node(new_item)  # Create a node with the data from args
+
+        if self.tail is None:
+            self.tail = new_node
+        else:
+            probe = self.tail
+            while probe.next != None:
+                probe = probe.next
+            probe.next = new_node
+
+    def remove_the_head(self):
+        """Remove the item at the head"""
+        removed_item = self.tail
+        if self.tail.next is None:
+            self.tail = None
+        else:
+            probe = self.tail
+            while probe.next.next != None:
+                probe = probe.next
+            removed_item = probe.next.data
+            probe.next = None
+
+        print(f"--> {removed_item}")
+
+    def insert_in_index(self, new_item, index):
+        """Insert a node with a specific data and in a specific index.
+        The index is counting from tail to head and start in 0
+
+        Args:
+            new_item (any): data to be stored in the node
+            index (int): index to insert the node 0 - tail, 
+            index > 0 from tail to head.  
+        """
+        if self.tail is None or index <= 0:
+            self.tail = Node(new_item, self.tail)
+        else:
+            probe = self.tail
+            while index > 1 and probe.next != None:
+                probe = probe.next
+                index -= 1
+            probe.next = Node(new_item, probe.next)
+
+    def delete_from_index(self, index: int) -> None:
+        """Delete a node in a specified index
+
+        Args:
+            index (int): start counting form 0 and at the tail. 
+            index [0] is the tail   
+        """
+
+        if index <= 0 or self.tail.next is None:
+            removed_item = self.tail.data
+            self.tail = self.tail.next
+            print(f"Item removed: {removed_item}")
+        else:
+            probe = self.tail
+            while index > 1 and probe.next.next != None:
+                probe = probe.next
+                index -= 1
+            removed_item = probe.next.data
+            probe.next = probe.next.next
+            print(f"Item removed: {removed_item}")

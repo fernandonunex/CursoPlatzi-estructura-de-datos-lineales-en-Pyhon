@@ -1,3 +1,5 @@
+"""Code used to create the methods and testing the methods"""
+
 from linked_list import SinglyLinkedList
 from node import Node
 from array_ import Array
@@ -54,30 +56,16 @@ from array_ import Array
 #     probe.next = new_node
 
 
-
-print("Creating an Array with random numbers")
-random = Array(10)
-random.__fillRandom__()
-print(random)
-
-print("Creating a Linked list from an Array")
-linked_random = SinglyLinkedList()
-linked_random.array_to_linked(random)
-linked_random.show_linked_list()
-# linked_random.search(5)
-linked_random.replace_item(2,'dope')
-linked_random.show_linked_list()
-
-
-
 #************************************************************************************
 # 5. Remove item
 # removed_item = head.data
 # head = head.next
 # print(f"-->{removed_item}")
 
+
+
 #************************************************************************************
-# 6. Remove item at the end
+# 6. Remove item at the head
 # removed_item = head.data
 # if head.next is None:
 #     head = None
@@ -131,4 +119,30 @@ linked_random.show_linked_list()
 # while probe != None:
 #     print(probe.data)
 #     probe = probe.next
+
+
+
+print("Creating an Array with random numbers")
+random = Array(10)
+random.__fillRandom__()
+print(random)
+print("Creating a Linked list from an Array")
+linked_random = SinglyLinkedList()
+linked_random.array_to_linked(random)
+linked_random.show_linked_list()
+# linked_random.search(5)
+# linked_random.replace_item(2,'dope')
+# linked_random.show_linked_list()
+print("***"*10)
+# linked_random.insert_at_head('Yo soy la cabeza')
+# linked_random.insert_in_index('I am the first',0)
+# linked_random.insert_in_index('I am the second',1)
+# linked_random.insert_in_index('I am the last one',20)
+linked_random.delete_from_index(5)
+linked_random.show_linked_list()
+print("***"*10)
+# linked_random.remove_the_head()
+# linked_random.show_linked_list()
+
+
 
