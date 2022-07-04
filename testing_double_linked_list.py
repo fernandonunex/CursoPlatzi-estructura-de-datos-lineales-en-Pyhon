@@ -22,5 +22,5 @@ circular.append(2)
 circular.append(2)
 circular.size()
 
-print(circular.tail.next.data)
+print(circular.head.next.data)
 
