@@ -22,5 +22,7 @@ circular.append(2)
 circular.append(2)
 circular.size()
 
-print(circular.head.next.data)
+# print(circular.head.next.data)
 
+for data in circular.iter():
+    print(data)
