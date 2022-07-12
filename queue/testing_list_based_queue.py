@@ -63,15 +63,15 @@ from stack_based_queue import Queue
 
 # TESTING PLAYLIST CLASS
 
-from playlist import Playlist
+from playlist import Playlist, MediaPlayerQueue, Track
 
-zoe_playlist = Playlist()
-flag = ''
-while flag != 'exit':
-    zoe_playlist.add_song()
-    flag = input("Enter 'exit' to stop adding songs or press 'Enter' to continue:")
+# zoe_playlist = Playlist()
+# flag = ''
+# while flag != 'exit':
+#     zoe_playlist.add_song()
+#     flag = input("Enter 'exit' to stop adding songs or press 'Enter' to continue:")
 
-zoe_playlist.play()
+# zoe_playlist.play()
 
 
 
@@ -80,3 +80,25 @@ zoe_playlist.play()
 # No me destruyas Zoe 240
 # Vía Láctea Zoe 240
 # Reptilectric Zoe 230
+
+# TESTING THE CODE OF PROFESSOR
+
+track1 = Track("Highway to hell")
+track2 = Track("Go!")
+track3 = Track("Light years")
+track4 = Track("Heartbreaker")
+track5 = Track("Breath me") 
+track6 = Track("How to dissappear completely")
+
+media_player = MediaPlayerQueue()
+media_player.add_track(track1)
+media_player.add_track(track2) 
+media_player.add_track(track3) 
+media_player.add_track(track4) 
+media_player.add_track(track5) 
+media_player.add_track(track6) 
+
+media_player.play()
+
+
+
